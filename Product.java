@@ -1,6 +1,9 @@
 package com.cg.bean;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,8 +23,8 @@ public class Product {
 	@Column
 	private Integer mechantId;
 	
-	@Column
-	private String[] tag;
+	@ElementCollection
+	private List<String> tag;
 	
 	@Column 
 	private String company;
@@ -74,11 +77,11 @@ public class Product {
 		this.mechantId = mechantId;
 	}
 
-	public String[] getTag() {
+	public List<String> getTag() {
 		return tag;
 	}
-
-	public void setTag(String[] tag) {
+	
+	public void setTag(List<String> tag) {
 		this.tag = tag;
 	}
 
@@ -154,7 +157,7 @@ public class Product {
 		this.price = price;
 	}
 
-	public Product(String productName, Integer mechantId, String[] tag, String company, String photo,
+	public Product(String productName, Integer mechantId, List<String> tag, String company, String photo,
 			String description, String review, String category, Integer views, Integer quantity, Integer soldQuantities,
 			Integer price) {
 		super();

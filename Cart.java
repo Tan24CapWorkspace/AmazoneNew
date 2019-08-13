@@ -1,11 +1,16 @@
 package com.cg.bean;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @Entity
 @Table(name="cart")
@@ -14,8 +19,8 @@ public class Cart {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer userId;
 	
-	@Column
-	private Integer productId;
+	@ElementCollection
+	private List<Integer> productId;
 	
 	@Column
 	private Integer quantity;
@@ -31,11 +36,10 @@ public class Cart {
 		this.userId = userId;
 	}
 
-	public Integer getProductId() {
+	public List<Integer> getProductId() {
 		return productId;
 	}
-
-	public void setProductId(Integer productId) {
+	public void setProductId(List<Integer> productId) {
 		this.productId = productId;
 	}
 
@@ -60,7 +64,7 @@ public class Cart {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cart(Integer productId, Integer quantity, Double amount) {
+	public Cart(List<Integer> productId, Integer quantity, Double amount) {
 		super();
 		this.productId = productId;
 		this.quantity = quantity;
