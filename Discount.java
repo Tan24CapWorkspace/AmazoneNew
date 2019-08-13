@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="discount")
+@Table(name="discount1")
 public class Discount {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
