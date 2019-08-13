@@ -29,9 +29,8 @@ public class Coupon {
 	@Column(nullable=false)
 	private Double discount;
 
-	public Coupon(Integer couponid, Date startDate, Date endDate, String couponName, Integer userid, Double discount) {
+	public Coupon(Date startDate, Date endDate, String couponName, Integer userid, Double discount) {
 		super();
-		this.couponid = couponid;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.couponName = couponName;

@@ -27,9 +27,8 @@ public class Admin {
 	@Column(length=100)
 	private String photo;
 
-	public Admin(Integer adminId, String firstName, String lastName, String emailid, String password, String photo) {
+	public Admin(String firstName, String lastName, String emailid, String password, String photo) {
 		super();
-		this.adminId = adminId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailid = emailid;

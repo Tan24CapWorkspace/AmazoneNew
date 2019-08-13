@@ -28,10 +28,10 @@ public class TPMerchant {
 	
 	
 
-	public TPMerchant(Integer merchantId, String firstName, String lastName, String company, String emailid,
+	public TPMerchant(String firstName, String lastName, String company, String emailid,
 			Long mobileno) {
 		super();
-		this.merchantId = merchantId;
+
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.company = company;

@@ -35,10 +35,9 @@ public class Merchant {
 	@Column(length=5, nullable=false)
 	private Double rating;
 
-	public Merchant(Integer merchantId, String firstName, String lastName, String company, String emailid,
+	public Merchant(String firstName, String lastName, String company, String emailid,
 			Long mobileno, String password, String photo, Double rating) {
 		super();
-		this.merchantId = merchantId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.company = company;
