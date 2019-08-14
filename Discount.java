@@ -12,8 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="discount1")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Discount {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -74,6 +77,12 @@ public class Discount {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Discount [discountId=" + discountId + ", product=" + product + ", discount=" + discount + ", startDate="
+				+ startDate + ", endDate=" + endDate + "]";
 	}
 	
 	

@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Merchant {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -114,6 +117,13 @@ public class Merchant {
 
 	public void setRating(Double rating) {
 		this.rating = rating;
+	}
+
+	@Override
+	public String toString() {
+		return "Merchant [merchantId=" + merchantId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", company=" + company + ", emailid=" + emailid + ", mobileno=" + mobileno + ", password=" + password
+				+ ", photo=" + photo + ", rating=" + rating + "]";
 	}
 	
 	
