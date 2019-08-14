@@ -5,9 +5,12 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -17,38 +20,44 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer userId;
+	private Integer cartId;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="User1.userId")
+	private User1 user;
 	
 	@ElementCollection
-	private List<Integer> productId;
-	
-	@Column
-	private Integer quantity;
+	private List<Integer[]> products;
 	
 	@Column
 	private Double amount;
-
-	public Integer getUserId() {
-		return userId;
+	
+	public Cart() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public Cart(User1 user, List<Integer[]> products, Double amount) {
+		super();
+		this.user = user;
+		this.products = products;
+		this.amount = amount;
 	}
 
-	public List<Integer> getProductId() {
-		return productId;
-	}
-	public void setProductId(List<Integer> productId) {
-		this.productId = productId;
+	public User1 getUser() {
+		return user;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
+	public void setUser(User1 user) {
+		this.user = user;
 	}
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
+	public List<Integer[]> getProducts() {
+		return products;
+	}
+
+	public void addProducts(Integer productId, Integer quantity) {
+		Integer[] array = {productId, quantity};
+		products.add(array);
 	}
 
 	public Double getAmount() {
@@ -58,19 +67,6 @@ public class Cart {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
-
-	public Cart() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Cart(List<Integer> productId, Integer quantity, Double amount) {
-		super();
-		this.productId = productId;
-		this.quantity = quantity;
-		this.amount = amount;
-	}
-	
 	
 	
 

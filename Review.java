@@ -2,30 +2,52 @@ package com.cg.bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="review")
 public class Review {
 	@Id
-	private Integer productId;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private Integer reviewId;
+	
+	@ManyToOne
+	@JoinColumn(name="Product.productId")
+	private Product product;
 	
 	@Column
 	private String review;
 	
-	@Column
-	private Integer userId;
+	@ManyToOne
+	@JoinColumn(name="User1.userId")
+	private User1 user;
 	
 	@Column
 	private Integer star;
 
-	public Integer getProductId() {
-		return productId;
+	public Review() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public Review(Product product, String review, User1 user, Integer star) {
+		super();
+		this.product = product;
+		this.review = review;
+		this.user = user;
+		this.star = star;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public String getReview() {
@@ -36,12 +58,12 @@ public class Review {
 		this.review = review;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public User1 getUser() {
+		return user;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUser(User1 user) {
+		this.user = user;
 	}
 
 	public Integer getStar() {
@@ -51,18 +73,6 @@ public class Review {
 	public void setStar(Integer star) {
 		this.star = star;
 	}
-
-	public Review(Integer productId, String review, Integer userId, Integer star) {
-		super();
-		this.productId = productId;
-		this.review = review;
-		this.userId = userId;
-		this.star = star;
-	}
-
-	public Review() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 }

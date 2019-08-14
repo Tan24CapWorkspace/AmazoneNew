@@ -4,9 +4,12 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,17 +19,30 @@ public class Discount {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer discountId;
 	
-	@Column
-	private Integer productId;
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Product.productID")
+	private Product product;
 	
 	@Column
-	private Integer discount;
+	private Double discount;
 	
 	@Column
 	private Date startDate;
 	
 	@Column
 	private Date endDate;
+
+	public Discount() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Discount(Product product, Double discount, Date startDate, Date endDate) {
+		super();
+		this.product = product;
+		this.discount = discount;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
 
 	public Integer getDiscountId() {
 		return discountId;
@@ -36,20 +52,12 @@ public class Discount {
 		this.discountId = discountId;
 	}
 
-	public Integer getProductId() {
-		return productId;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
-
-	public Integer getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(Integer discount) {
-		this.discount = discount;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public Date getStartDate() {
@@ -67,18 +75,7 @@ public class Discount {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-
-	public Discount(Integer productId, Integer discount, Date startDate, Date endDate) {
-		super();
-		this.productId = productId;
-		this.discount = discount;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
-	public Discount() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 	
 }

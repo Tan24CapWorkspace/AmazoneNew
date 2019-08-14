@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Admin {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer adminId;
@@ -34,6 +35,10 @@ public class Admin {
 		this.emailid = emailid;
 		this.password = password;
 		this.photo = photo;
+	}
+	
+	public Admin() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getAdminId() {
@@ -89,6 +94,4 @@ public class Admin {
 		return "Admin [adminId=" + adminId + ", firstName=" + firstName + ", lastName=" + lastName + ", emailid="
 				+ emailid + ", password=" + password + ", photo=" + photo + "]";
 	}
-	
-	
 }

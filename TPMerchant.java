@@ -28,71 +28,95 @@ public class TPMerchant {
 	
 	
 
-	public TPMerchant(String firstName, String lastName, String company, String emailid,
+	public TPMerchant() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public TPMerchant(Integer merchantId, String firstName, String lastName, String company, String emailid,
 			Long mobileno) {
 		super();
-
+		this.merchantId = merchantId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.company = company;
 		this.emailid = emailid;
 		this.mobileno = mobileno;
 	}
+
+
 
 	public Integer getMerchantId() {
 		return merchantId;
 	}
 
+
+
 	public void setMerchantId(Integer merchantId) {
 		this.merchantId = merchantId;
 	}
+
+
 
 	public String getFirstName() {
 		return firstName;
 	}
 
+
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
 
 	public String getLastName() {
 		return lastName;
 	}
 
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
 
 	public String getCompany() {
 		return company;
 	}
 
+
+
 	public void setCompany(String company) {
 		this.company = company;
 	}
+
+
 
 	public String getEmailid() {
 		return emailid;
 	}
 
+
+
 	public void setEmailid(String emailid) {
 		this.emailid = emailid;
 	}
+
+
 
 	public Long getMobileno() {
 		return mobileno;
 	}
 
+
+
 	public void setMobileno(Long mobileno) {
 		this.mobileno = mobileno;
 	}
-
-	@Override
-	public String toString() {
-		return "TPMerchant [merchantId=" + merchantId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", company=" + company + ", emailid=" + emailid + ", mobileno=" + mobileno + "]";
-	}
-
-		
+	
+	
 	
 }

@@ -1,36 +1,71 @@
 package com.cg.bean;
 
 import javax.persistence.Table;
+
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name="wishlist")
 public class Wishlist {
-	@Id
-	private Integer productId;
 	
-	@Column
-	private Integer userId;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private Integer wishlistId;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="User1.userId")
+	private List<User1> user;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="Product.productId")
+	private List<Product> products;
 	
 	@Column
 	private String name;
 
-	public Integer getProductId() {
-		return productId;
+	public Wishlist() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setProductId(Integer productId) {
-		this.productId = productId;
+	public Wishlist(List<User1> user, List<Product> products, String name) {
+		super();
+		this.user = user;
+		this.products = products;
+		this.name = name;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public Integer getWishlistId() {
+		return wishlistId;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setWishlistId(Integer wishlistId) {
+		this.wishlistId = wishlistId;
+	}
+
+	public List<User1> getUser() {
+		return user;
+	}
+
+	public void setUser(List<User1> user) {
+		this.user = user;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public String getName() {
@@ -41,17 +76,8 @@ public class Wishlist {
 		this.name = name;
 	}
 
-	public Wishlist(Integer productId, Integer userId, String name) {
-		super();
-		this.productId = productId;
-		this.userId = userId;
-		this.name = name;
-	}
-
-	public Wishlist() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 	
 	
 

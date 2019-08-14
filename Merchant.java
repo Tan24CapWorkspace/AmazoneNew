@@ -35,8 +35,12 @@ public class Merchant {
 	@Column(length=5, nullable=false)
 	private Double rating;
 
-	public Merchant(String firstName, String lastName, String company, String emailid,
-			Long mobileno, String password, String photo, Double rating) {
+	public Merchant() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Merchant(String firstName, String lastName, String company, String emailid, Long mobileno, String password,
+			String photo, Double rating) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -46,14 +50,6 @@ public class Merchant {
 		this.password = password;
 		this.photo = photo;
 		this.rating = rating;
-	}
-
-	public Integer getMerchantId() {
-		return merchantId;
-	}
-
-	public void setMerchantId(Integer merchantId) {
-		this.merchantId = merchantId;
 	}
 
 	public String getFirstName() {
@@ -119,13 +115,7 @@ public class Merchant {
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-
-	@Override
-	public String toString() {
-		return "Merchant [merchantId=" + merchantId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", company=" + company + ", emailid=" + emailid + ", mobileno=" + mobileno + ", password=" + password
-				+ ", photo=" + photo + ", rating=" + rating + "]";
-	}
+	
 	
 	
 }

@@ -33,9 +33,14 @@ public class User1 {
 	@Column(length=100) // must have a default photo for that
 	private String photo;
 
-	public User1(String emailid, String firstName, String lastName, String password, Long mobileNo,
+	public User1() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public User1(Integer userId, String emailid, String firstName, String lastName, String password, Long mobileNo,
 			String address, String photo) {
 		super();
+		this.userId = userId;
 		this.emailid = emailid;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -108,14 +113,6 @@ public class User1 {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-
-	@Override
-	public String toString() {
-		return "User1 [userId=" + userId + ", emailid=" + emailid + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", password=" + password + ", mobileNo=" + mobileNo + ", address=" + address + ", photo="
-				+ photo + "]";
-	}
-	
 	
 	
 }
