@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="admin")
 public class Admin {
 	
 	@Id
@@ -25,7 +27,7 @@ public class Admin {
 	@Column(length=30, nullable=false, unique=true)
 	private String emailid;
 	
-	@Column(length=20, nullable=false)
+	@Column(length=30, nullable=false)
 	private String password;
 	
 	@Column(length=100)

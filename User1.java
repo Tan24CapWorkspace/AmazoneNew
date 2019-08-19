@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="user1")
 public class User1 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -24,7 +26,7 @@ public class User1 {
 	@Column(length=20, nullable=true)
 	private String lastName;
 	
-	@Column(length=20, nullable=false)
+	@Column(length=30, nullable=false)
 	private String password;
 	
 	@Column(length=10, unique=true, nullable=false)

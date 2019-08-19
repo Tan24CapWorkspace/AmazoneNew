@@ -58,7 +58,7 @@ public class Product {
 	private Integer soldQuantities;
 	
 	@Column
-	private Integer price;
+	private Double price;
 	
 	
 	private Date releaseDate;
@@ -83,7 +83,7 @@ public class Product {
 
 	public Product(String productName, Merchant merchant, List<String> tag, String company, String photo,
 			String description, Integer quantity, String category, String subcategory, Integer soldQuantities,
-			Integer price, Date releaseDate) {
+			Double price, Date releaseDate) {
 		super();
 		this.productName = productName;
 		this.merchant = merchant;
@@ -133,7 +133,7 @@ public class Product {
 
 
 
-	public Integer getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
@@ -143,7 +143,7 @@ public class Product {
 
 
 
-	public void setPrice(Integer price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 

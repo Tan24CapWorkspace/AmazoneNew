@@ -3,16 +3,20 @@ package com.cg.bean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="securityans")
 public class SecurityAns {
 	@Id
-	@Column(length=30)
+	@Column(length=30, name="emailid")
 	private String emailId;
+	@Column(name="answer1")
 	private String answer1;
+	@Column(name="answer2")
 	private String answer2;
 	
 	public SecurityAns() {

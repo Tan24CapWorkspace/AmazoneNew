@@ -1,6 +1,7 @@
 package com.cg.bean;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,11 +14,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="transaction")
 public class Transaction {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
@@ -37,6 +40,8 @@ public class Transaction {
 	
 	@Column(length=50)
 	private String modeOfPurchase;
+	
+	
 	
 	public Transaction() {
 		// TODO Auto-generated constructor stub
